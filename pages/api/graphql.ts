@@ -8,8 +8,8 @@ export const config = {
   },
 }
 
-const server = new ApolloServer({schema, context}).createHandler({
-  path: '/api'
+const server = new ApolloServer({ schema, context }).createHandler({
+  path: '/api/graphql'
 })
 
 export default server

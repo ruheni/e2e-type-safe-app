@@ -12,25 +12,25 @@
     "generate:genql": "nodemon --exec 'genql --schema ./graphql/schema.graphql --output ./graphql/generated/genql'  --watch 'graphql/schema.graphql'"
   },
   "dependencies": {
-    "@genql/runtime": "^2.6.0",
-    "@prisma/client": "^2.29.1",
-    "apollo-server-micro": "^2.25.2",
-    "graphql": "^15.5.1",
-    "graphql-scalars": "^1.10.0",
+    "@genql/runtime": "2.6.0",
+    "@prisma/client": "2.30.0",
+    "apollo-server-micro": "2.25.2",
+    "graphql": "15.5.1",
+    "graphql-scalars": "1.10.0",
     "next": "11.1.0",
-    "nexus": "^1.1.0",
+    "nexus": "1.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@genql/cli": "^2.6.0",
+    "@genql/cli": "2.6.0",
     "@types/react": "17.0.19",
-    "concurrently": "^6.2.1",
+    "concurrently": "6.2.1",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
-    "nodemon": "^2.0.12",
-    "prisma": "^2.29.1",
-    "ts-node": "^10.2.1",
+    "nodemon": "2.0.12",
+    "prisma": "2.30.0",
+    "ts-node": "10.2.1",
     "typescript": "4.3.5"
   }
 }

@@ -13,9 +13,6 @@ export default function Home() {
         url: true,
         imageUrl: true,
         createdAt: true,
-        tags: {
-          name: true
-        }
       }
     })
 

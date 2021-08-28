@@ -4,12 +4,18 @@ import Link from 'next/link'
 
 import { client } from '../../util/genqlClient'
 
-export default function Note() {
+export default function Item() {
   const router = useRouter()
 
   const { id } = router.query
 
-  const fetcher = (id: string) =>
+  const deleteItem = async (id: string) => {
+    await client.mutation({
+      deleteItem: [{ id }, { id: true }],
+    }).then(_res => router.push('/'))
+  }
+
+  const fetcher = async (id: string) =>
     client.query({
       getOneItem: [
         { id },

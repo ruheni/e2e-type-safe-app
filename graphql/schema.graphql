@@ -7,35 +7,28 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 """
 scalar DateTime
 
-type Mutation {
-  createNote(description: String, details: String, title: String!): Note
-  createTag(name: String!): Tag
-  deleteNote(id: ID!): Note
-  updateNote(description: String, details: String, id: ID!, title: String): Note
-}
-
-type Note {
+type Item {
   createdAt: DateTime
   description: String
-  details: String
   id: ID!
-  tags: [Tag]
+  imageUrl: String
   title: String!
   updatedAt: DateTime
+  url: String
+}
+
+type Mutation {
+  createItem(description: String, imageUrl: String, title: String!, url: String): Item
+  deleteItem(id: ID!): Item
+  updateItem(description: String, id: ID!, imageUrl: String, title: String, url: String): Item
 }
 
 type Query {
-  getNotes(filter: String, sortBy: SortOrder): [Note]
-  getOneNote(id: String!): Note
+  getItems(filter: String, sortBy: SortOrder): [Item]
+  getOneItem(id: String!): Item
 }
 
 enum SortOrder {
   asc
   desc
-}
-
-type Tag {
-  id: ID!
-  name: String!
-  notes: [Note]
 }

@@ -11,13 +11,12 @@ export default function Note() {
 
   const fetcher = (id: string) =>
     client.query({
-      getOneNote: [
+      getOneItem: [
         { id },
         {
           id: true,
           title: true,
           description: true,
-          details: true,
           createdAt: true,
           tags: {
             name: true
@@ -33,11 +32,10 @@ export default function Note() {
         <a>&#8592; Back</a>
       </Link>
 
-      {data?.getOneNote && (
+      {data?.getOneItem && (
         <>
-          <p>Title: {data.getOneNote.title}</p>
-          <p>Description: {data.getOneNote.description}</p>
-          <p>Details: {data.getOneNote.details}</p>
+          <p>Title: {data.getOneItem.title}</p>
+          <p>Description: {data.getOneItem.description}</p>
         </>
       )}
     </div>

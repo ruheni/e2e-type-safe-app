@@ -6,11 +6,12 @@ export default function Home() {
 
   const fetcher = () =>
     client.query({
-      getNotes: {
+      getItems: {
         id: true,
         title: true,
         description: true,
-        details: true,
+        url: true,
+        imageUrl: true,
         createdAt: true,
         tags: {
           name: true
@@ -18,24 +19,24 @@ export default function Home() {
       }
     })
 
-  const { data, error } = useSWR('getNotes', fetcher)
+  const { data, error } = useSWR('getItems', fetcher)
 
   return (
     <div>
       {error && <p>Oops, something went wrong!</p>}
       <Link href="/create">
-        <a> Create Note &#8594;</a>
+        <a> Create Item &#8594;</a>
       </Link>
       <ul>
-        {data?.getNotes && data.getNotes.map((note) => (
-          <li key={note.id}>
-            <Link href={`/note/${note.id}`}>
+        {data?.getItems && data.getItems.map((item) => (
+          <li key={item.id}>
+            <Link href={`/item/${item.id}`}>
               <a>
-                {note.title} - {note?.description}
+                {item.title} - {item?.description}
                 <br />
-                {note?.details}
+                {item?.imageUrl}
                 <br />
-                {note?.createdAt}
+                {item?.createdAt}
               </a>
             </Link>
           </li>

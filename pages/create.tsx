@@ -8,7 +8,8 @@ export default function Create() {
 
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
-  const [details, setDetails] = useState("")
+  const [url, setUrl] = useState("")
+  const [imageUrl, setImageUrl] = useState("")
 
   const [error, setError] = useState()
 
@@ -16,13 +17,14 @@ export default function Create() {
     event.preventDefault()
 
     await client.mutation({
-      createNote: [{
+      createItem: [{
         title,
         description,
-        details,
+        url,
+        imageUrl,
 
       }, {
-        title: true,
+        id: true,
       }]
     }).then(response => {
       console.log(response)
@@ -45,13 +47,12 @@ export default function Create() {
         <label htmlFor="description">Description</label>
         <input name="description" value={description} onChange={(e) => setDescription(e.target.value)} />
         <br />
-        <label htmlFor="details">Details</label>
-
-        <textarea
-          name="details"
-          value={details}
-          onChange={(e) => setDetails(e.target.value)}
-        />
+        <label htmlFor="url">URL</label>
+        <input name="url" value={url} onChange={(e) => setUrl(e.target.value)} />
+        <br />
+        <label htmlFor="imageUrl">Image URL</label>
+        <input name="imageUrl" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+        <br />
 
         <button type="submit">Create Note</button>
       </form>

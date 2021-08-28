@@ -39,7 +39,7 @@ export default function Create() {
       </Link>
       <form onSubmit={handleSubmit}>
 
-        <h2>Create Note</h2>
+        <h2>Create Item</h2>
 
         <label htmlFor="title">Title</label>
         <input name="title" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -54,7 +54,7 @@ export default function Create() {
         <input name="imageUrl" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
         <br />
 
-        <button type="submit">Create Note</button>
+        <button type="submit">Create Item</button>
       </form>
     </>
   )

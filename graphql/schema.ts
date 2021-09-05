@@ -30,7 +30,6 @@ const Query = queryType({
       type: 'Item',
       args: {
         sortBy: arg({ type: 'SortOrder' }),
-        filter: stringArg()
       },
       resolve: async (_, args, ctx) => {
         return ctx.db.item.findMany({

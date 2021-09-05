@@ -24,9 +24,6 @@ export default function Item() {
           title: true,
           description: true,
           createdAt: true,
-          tags: {
-            name: true
-          }
         }]
     })
 
